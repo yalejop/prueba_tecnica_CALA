@@ -11,5 +11,14 @@ def index():
     
     return render_template('index.html')
 
+@app.route('/pedidos')
+def pedidos():
+    
+    return render_template('pedidos.html')
 
+
+@app.route('/analisis')
+def analisis():
+    
+    return render_template('analisis.html')
 
