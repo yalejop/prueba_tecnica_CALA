@@ -29,10 +29,12 @@ def pedidos():
     table['Edad'] = (((table['Fecha'] - table['NACIMIENTO']).dt.days)/ 365.2425).astype(int)
     cols_to_subset = ['NOMBRE', 'APELLIDO', 'CEDULA', 'NACIMIENTO', 'Nombre_Completo', 'Edad', 'Tipo de pedido', 'numero de pedido']
     clean_table = table[cols_to_subset]
+    final_table = clean_table.to_html()
+
     
-    print(clean_table)
+    print(final_table)
     
-    return render_template('pedidos.html', clean_table=clean_table)
+    return render_template('pedidos.html', final_table=[final_table], titles=[''])
 
 
 @app.route('/analisis')
