@@ -50,3 +50,13 @@
   #nav-bar .nav-link:focus {
     text-decoration: underline;
   }
+
+  .img {
+    height: 850px;
+    width: 1200px;
+  }
+
+  .title {
+    text-align: center;
+    margin-top: 10px;
+  }

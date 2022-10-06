@@ -20,10 +20,12 @@
         </div>
     </header>
     <div class="container">
-        <table class="table">
+        <h2 class="title">Tabla de pedidos</h2>
+        <table class="table table-dark">
             <h1>{% for table in final_table %}</h1>
             <h2>{{titles[loop.index]}}</h2>
-            {{table | safe }} {% endfor %}
+            {{table | safe }} 
+            {% endfor %}
         </table>
     </div>
 </body>
