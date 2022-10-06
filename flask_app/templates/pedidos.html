@@ -7,6 +7,12 @@
     <title>Pedidos</title>
 </head>
 <body>
-    {{clean_table}}
+    <div>
+        <table>
+            <h1>{% for table in final_table %}</h1>
+            <h2>{{titles[loop.index]}}</h2>
+            {{table | safe }} {% endfor %}
+        </table>
+    </div>
 </body>
 </html>
