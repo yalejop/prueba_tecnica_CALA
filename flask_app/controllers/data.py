@@ -6,16 +6,17 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import base64
 from io import BytesIO
-
-
-
-
 from flask_app import app
 
 @app.route('/')
 def index():
+    
+    textFile = './flask_app/files/ejercicio1_b2.txt'
+    excelFile = './flask_app/files/ejercicio1_b1.xlsx'
+    # fileExcel = "/flask_app"
+    # excelPath = os.path
 
-    return render_template('index.html')
+    return render_template('index.html', excel=excelFile, txt=textFile)
 
 @app.route('/pedidos/')
 def pedidos():
@@ -39,16 +40,7 @@ def pedidos():
 
     print(final_table)
     
-    # search = False
-    # q = request.args.get('q')
-    # if q:
-    #     search = True
-
-    # page = request.args.get(get_page_parameter(), type=int, default=1)
-
-    # pagination = Pagination(page=page, search=search, record_name='tables')
-
-    return render_template('pedidos.html', final_table=[final_table], titles=[''])
+    return render_template('pedidos.html', final_table=[final_table])
 
 
 @app.route('/analisis/')
@@ -72,10 +64,6 @@ def plot():
     total = clean_table.groupby(['NOMBRE', 'Tipo de pedido'])['numero de pedido'].count()
 
     img = BytesIO()
-    # y = [1,2,3,4,5]
-    # x = [0,2,1,3,4]
-
-    # plt.plot(total)
     total.plot(kind='bar',figsize=(13,16))
     
     
