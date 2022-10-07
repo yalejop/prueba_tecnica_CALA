@@ -60,3 +60,11 @@
     text-align: center;
     margin-top: 10px;
   }
+
+  .dataframe {
+    width: 100%;
+  }
+
+tr {
+  text-align: end;
+}

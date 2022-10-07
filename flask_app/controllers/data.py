@@ -1,11 +1,12 @@
 from csv import excel
-from flask import render_template
+from flask import render_template, request
 import pandas as pd
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import base64
 from io import BytesIO
+
 
 
 
@@ -36,10 +37,18 @@ def pedidos():
     clean_table = table[cols_to_subset]
     final_table = clean_table.to_html()
 
-
     print(final_table)
+    
+    # search = False
+    # q = request.args.get('q')
+    # if q:
+    #     search = True
 
-    return render_template('pedidos.html', final_table=[final_table], titles=['NOMBRE'])
+    # page = request.args.get(get_page_parameter(), type=int, default=1)
+
+    # pagination = Pagination(page=page, search=search, record_name='tables')
+
+    return render_template('pedidos.html', final_table=[final_table], titles=[''])
 
 
 @app.route('/analisis/')
